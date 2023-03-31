@@ -1,0 +1,52 @@
+GitHub Zeneca Academy
+
+url: https://github.com/khun1964/Zeneca-Academy
+
+Référence à :  Docker / kubernette / Jira / Postman / Ansible  / Maven / Git
+
+
+
+Réponse 3: Dabord un petit rappel des erreurs : il y a cinq classes de type d'erreur pour une connexion serveur.
+
+	   chaque code commence par un chiffre faisant référence à un code d'état : 1XX / 2XX / 3XX / 4XX / 5XX
+	   * Les X seront remplacés par 0 ou un autre chiffre.
+
+	   On commence avec  1XX qui est une demande d'information, le serveur à reçu et compris = délai d'attente 
+	    // dans le cas étudié ce n'est pas le cas à la question posée 
+
+	   Puis 2XX qui est une demande qui réussie.
+		// dans le cas étudié ce n'est pas le cas à la question posée 
+
+  	   Puis 3XX qui fait une ou des redirections.
+		 // dans le cas étudié cela peut être une indication à la question posée.
+		    * une redirection vers une page différente, problème de configuration donc pour le client testeur.
+		    * L'URL initiale est incorrecte, problème de conception issue du travail des devops.
+
+    	   Puis 4XX qui signale des erreurs côté client.
+		 // dans le cas étudié cela peut être une indication à la question posée.
+		    * au choix une autorisation interdite (problème de configuration des autorisations).
+		    * une requête administrateur d'une connexion non reconnu comme telle.
+		    * Conflit interne serveur : problème de paramêtrage de conception liée aux machines.
+		    * délai d'attente : ici problème matériel ou de routage : problème réseau, si comme présentée testée sur site, cela peut être un problème interne au client.
+
+   	   Et enfin 5XX qui signale des erreurs du côté ou du serveur.
+		 // dans le cas étudié celle-ci est la plus proche à la question posée.
+		    *Authentification réseau inopérante. Problème de conception car le client doit pouvoir tester.
+		    *La configuration des ports et leurs adéquations aux requêtes CRUD se situe dans la page YML.
+		     problème de conception facilement consultable et modifiable.
+		     Il faut relire et corriger les fichiers de configurations.
+		    *Le défaut de connexion côté client vient de la non reconnaissance de la requête voir ci-dessus.
+		     Mais aussi relecture des méthodes programmées pour le fonctions CRUDE dans les pages avec le méthodes.
+		     Relire et corrigées les fichiers ou se trouvent les classes.
+			 
+
+	   En mode console CMD / Powershell il est aussi possible d'effectuer des tests et ainsi accéder aux logs des erreurs étapes par étapes.
+	   Pratique courante en interne quand l'on modifie pas à pas des commandes. Je l'ai beaucoup pratiqué lors de mon stage entreprise avec le jeu DCS world.
+	   Chaque erreurs ou réussites sont chronologiquement visibles et les point d'échec sont situés précisément.
+
+	   Pour plus de détail aller à: https://www.websiterating.com/fr/resources/http-status-codes-cheat-sheet/#summary
+
+	   Il sera donc nécessaire d'obtenir le code erreur pour connaître l'origine de celle-ci pour la corriger. 
+
+	   Un logiciel intéressant s'il l'on monitore l'ensenble des connexions aux ports est Postman, accès et commandes facile mêm pour un n on programmeur.
+

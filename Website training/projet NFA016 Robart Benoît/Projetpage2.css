@@ -1,0 +1,389 @@
+
+
+
+
+#trois {
+    width:auto;
+    height:1200px;
+    background-color: white;
+}
+
+
+
+#trois .grid1 {
+    display: inline-block;  /* Utile car autrement l'on ne pourrait pas caler les div */
+    width: 1200px;
+    height: 400px;
+    padding: 40px;
+    padding-block: 20px;
+    margin-left:400px;  /* pareil en donnant de la marge l'on permet une répartition proportionnée dans la div*/
+
+}
+
+#trois .grid1{
+    background-color: white;
+    text-align: center;
+
+}
+
+/* sachant que l'on joue sur la répartion,celle-ci se fait à la fois aà l'horizontale et à la verticale : paramétrer la seconde grille est donc superflu car ici tout est symétrique avec 
+   un paramètrage unique pour l'ensxemble des cellules.*/
+
+#trois .grid2 {
+    display: inline-block;  /* Utile car autrement l'on ne pourrait pas caler les div */
+    width: 290px;
+    height: 350px;
+    padding: 1px;
+    padding-block: 40px;
+    margin-left:150px;  /* pareil en donnant de la marge l'on permet une répartition proportionnée dans la div*/
+
+}
+
+#trois .grid2{
+    background-color: rgb(34, 65, 97);
+    text-align: center;
+
+}
+
+
+
+#trois .p0 {
+
+    text-align:center;
+    font-size: 30px;
+    color:red;
+}
+
+#trois .p1 {
+    text-align:center;
+    font-size: 60px;
+    color:black;
+}
+
+#trois .p2 {
+    text-align:center;
+    font-size: 20px;
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    color:rgb(48, 46, 46);
+}
+
+
+#trois .p6 {
+    border-style:inset;
+    border-color:grey;
+    border-width: 2px;
+}
+
+
+#trois .A {
+    position:right;
+    line-height:1em;
+    background-color: red;
+    font-size: 25px;
+    width:150px;
+    height: 1em;;
+    color: white;
+}
+
+#trois .C {
+    position:right;
+    line-height:1em;
+    background-color: Blue;
+    font-size: 25px;
+    width:150px;
+    height: 10px;
+    color: white;
+}
+
+#trois .D {
+    color: red;
+    font-weight: bold;
+}
+
+
+/* les 8 plus belles voitures à louer ou acheter  */
+
+/* création alternative avec article */
+
+#trois article {
+
+    width:270px;
+    height:370px;
+    margin:5px;
+    border-style: outset;
+    border-color: grey;
+    float:left;
+    overflow:hidden;
+    padding:5px;
+}
+
+article img { 
+    margin:10px auto;
+    display:block;
+}
+
+
+#trois .small {
+    width: 270px;
+}
+
+
+#trois .full {
+    width: 0px;
+    position: absolute;
+    -webkit-transition: width 0.3s linear 0s;
+    transition-property:all;
+    z-index:10px;
+}
+
+
+#trois .small:hover+.full {
+    width:400px;
+
+}
+
+#trois .grid1 img {
+	-webkit-transform: scale(1);
+	transform: scale(1);
+	-webkit-transition: .3s ease-in-out;
+	transition: .3s ease-in-out;
+}
+#trois .grid1 img:hover  {
+	-webkit-transform: scale(1.3);
+	transform: scale(1.3);
+}
+
+
+/*  Pourquoi ne pas choisuir comme les autres; soyez originale */
+
+
+#quatre {
+    line-height:1em;
+    width:1920px;;
+    height:600px;
+    background-color:azure;
+    background-image: url(Divers/chooseus-video.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: right;
+
+}
+   
+#quatre article {
+    display: center;  /* Utile car autrement l'on ne pourrait pas caler les div */
+    width: 400px;
+    height: 450px;
+    border:0px;
+    padding: 10px;
+    background-color:transparent;
+    padding-block: 80px;
+    margin-left:150px;  /* pareil en donnant de la marge l'on permet une répartition proportionnée dans la div*/
+}
+
+#quatre .démarrage {
+    position:absolute;
+    left:1300px;
+    width:70px;
+
+}
+
+#quatre ul {
+    width:400px;
+    height:200px;
+
+}
+
+#quatre ul li {
+    line-height: 2em;
+    list-style-type: circle;
+    color:orangered;
+    font-size: 20px;;
+
+}
+
+
+#quatre .p0 {
+    line-height:1em;
+    font-size: 20px;
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    color:grey;
+}
+
+#quatre .p1 {
+    text-align:left;
+    font-size: 60px;
+    color:black;
+}
+
+#quatre .pA {
+    position:right;
+    line-height:1em;
+    background-color: red;
+    font-size: 25px;
+    width:130px;
+    height: 1em;;
+    color: white;
+}
+
+
+#quatre .Sagt warum {
+    display: center;  /* Utile car autrement l'on ne pourrait pas caler les div */
+    width: 400px;
+    height: 350px;
+    padding: 1px;
+    padding-block: 40px;
+    margin-left:150px;  /* pareil en donnant de la marge l'on permet une répartition proportionnée dans la div*/
+}
+
+#quatre .Sagt warum ul li img {
+    width: 10px;
+}
+
+/* les news le blog des consommateurs de Top Gear */
+
+
+
+
+
+
+#cinq {
+    width:1920px;
+    height:900px;
+    background-color:white;
+}
+
+/* test de changement de taille 
+.one img {
+    width:520px;
+    height:220px; 
+    background-size: 520px;
+    object-fit:cover;
+}
+
+à refaire */
+
+#cinq .p0 {
+
+    text-align:center;
+    font-size: 30px;
+    color:red;
+}
+
+#cinq .p1 {
+    text-align:center;
+    font-size: 60px;
+    color:black;
+}
+
+
+
+#cinq .p2 { 
+        text-align:center;
+        font-size: 20px;
+        font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        color:rgb(100, 96, 96);
+}
+
+#cinq .p3 {
+    text-align:center;
+    font-size: 20px;
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    color:black;
+}
+
+#cinq .p4 {
+    text-align:left;
+    font-size: 25px;
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    color:rgb(100, 96, 96);
+}
+
+#cinq .p5 {
+    text-align:left;
+    font-size: 15px;
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    color:rgb(146, 138, 138);
+}
+
+
+#cinq .détail {
+    display: inline-block;  /* Utile */
+    position:relative;
+    width: 500px;
+    height: 520px;
+    padding: 0px;
+    padding-block: 40px;
+    margin-left:120px;
+
+}
+
+#cinq .détail {
+    background-color: white;
+    text-align: left;
+
+}
+
+#cinq .détail .figure  {
+        position:relative; /* absolute */
+        display:block;
+        float:left;
+        /* width:max-content; */
+      /*  height:100%; */
+        overflow:hidden; /* hidden*/
+}
+
+.détail .text {
+    background: rgba(0, 0, 0, 0.8);
+  /*  z-index: 1; */
+    position:button;
+    text-align:center;
+    margin: auto;
+    padding-right: 25px;
+    color: white;
+    width: 100%;
+
+}
+
+.détail h1 {
+    font-size:20px;
+    height:30px;
+    vertical-align:1em;
+}
+
+.détail img .gris {
+    width:200;
+    height:220px;
+    
+}
+
+
+
+/* test cadrage autre méthode */
+
+
+
+
+/* test cadrage 
+
+
+.faste{
+    position: relative;
+}
+
+
+.position {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+
+
+
+.float{
+    float: left;
+    margin-right: 1.2em;
+}    
+
+
+ fin test cadrage */

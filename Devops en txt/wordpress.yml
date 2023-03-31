@@ -1,0 +1,34 @@
+version: '3'
+
+services:
+   wordpress: # nom du service/containeur
+      image: wordpress  # Nom de l'image à pull
+      restart: always # utile quand cela crash
+      depends_on:
+         - db
+      environment:
+         WORDPRESS_DB_HOST: db:3306
+         WORDPRESS_DB_USER: user
+         WORDPRESS_DB_PASSWORD: user
+         WORDPRESS_DB_NAME: wordpress
+      ports: 
+         - 8081:81 #ports côté hôte : port coté containeur
+      volumes:
+         - wordpress:/var/www/html
+   db:       
+      image: mariadb 
+      restart: always
+      environment:
+         MYSQL_ROOT_PASSWORD: admin
+         MYSQL_DATABASE: wordpress
+         MYSQL_USER: user
+         MYSQL_PASSWORD: user
+   
+      ports:
+         - 3306:3306
+      volumes:
+         - db:/var/lib/mysql
+volumes:
+   wordpress:     
+   db: 
+    

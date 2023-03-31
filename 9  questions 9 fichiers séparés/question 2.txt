@@ -1,0 +1,79 @@
+GitHub Zeneca Academy
+
+url: https://github.com/khun1964/Zeneca-Academy
+
+Référence à :  Docker / kubernette / Jira / Postman / Ansible  / Maven / Git
+
+
+Réponse 2: Il faut travailler dans le cadre de cet atelier avec trois documents explicites et intelligible par tous (ce n'est pas une mince affaire):
+           
+	   1/ un document contenant le cahier des charges : 
+		Introduction = ce que veut le client
+                Détails et clarification pour chaque service =  Ce quel'on a compris dans la demande (jeu des trois passes: énonciation - retranscription -validation ou infirmation = reprise de la boucle)
+	        Mise en forme du Projet = Ce qui est faisable / le difficile à créer / l'impossibilité technique ou le surcoût tuant le projet.                               
+	        Programme à réaliser : Ce que l'on peut faire et ses étapes + chiffrement des services énoncés  // cela alimentera le Backlog et par la suite les backlog spring
+                Validation + réserve client et équipe devOps = Avis MOA et MOE
+ 		Un planning devra être mis en place ainsi que les applications et leurs incrémentations attendues. Cela fait partie du chiffrage.
+
+           2/ Un document de conception technique : expliquant chaque étape et sa relation avec le cahier des charges
+                Chaque étape donnera lieu au détail : choix de la technologie et du langage.
+			                              présentation de bouts de code et son lien avec les interfaces client.
+						      Le lien entre chaque étapes et implémentation au projet permettra un test explicatif au client.
+		Un recapitulatif de l'aspect UI : Il sera nécessaire pour expliquer l'usage mais aussi l'importance des cycles élovutifs du projet ainsi que son coût. 
+
+		Important : écrire à la fois le manuel technique en codant ainsi que le manuel utilsateurs qui lui sera relu et réécrit pour aller au plus pratique au plus clair.
+
+		Conseils : https://www.techsmith.fr/blog/creer-le-guide-d-utilisation-parfait/
+
+		Comment faire la documentation d'un API ?
+	        La documentation d'une API devrait comporter au minimum les éléments suivants :
+
+                 la manière de s'authentifier s'il s'agit d'une API privé / standard ou requête spécifiques entreprises (voir cahier des charges)
+                 la définition des endpoints / étapes correspondants aux services et formumlaires.
+                 les paramètres éventuels : standards respectant la RGPD ( https://www.cnil.fr/fr/reglement-europeen-protection-donnees)
+                 quelques extraits de code: saisie écran ou tests sur un IDE
+                 des exemples de requêtes et de réponses.
+              
+
+
+	   *Cette étape est importante car elle peut orienter des modifications du projet ou son arrêt.
+	     Arret possible ou réorientation, si bien sur en plus du cahier des charges on produit un document technique énoncant et présentant l'objet attendu.
+             Celui-ci sera confronté à la réalité et fonctionnalité réalisée ou réalisable. 
+             Ce qui peut sonner l'arret ou des modifications substancielle si l'équipe product-owner en accord avec son client a la philosophie agile intégrée dans son
+	     sytème de fonctionnement et donc décisionnel. 
+
+
+	   3 / Le document Utilisateur : l'usage est autant pour le client que les futures utilisateurs de l'applicatif.
+
+	       *Important le Côté UI : un document utilisateur n'est pas un document technique pour les technos !
+
+                La Régle : Ce que va sans dire va mieux en le disant.
+
+	        Sauter des étapes évidentes c'est comme sauter des étapes d'une démonstration mathématique à un littéraire. C'est le perdre définitivement !
+
+                   
+	        Chaque interface / chaque formulaire doit être clairement présenter, expliquer et être relier à une tâche de l'application demandée.
+
+               *La possibilité des sauvegardes de chaque étapes est une nécessité pour l'usager même s'il coûte de la bande passante et de l'espace mémoire.
+
+
+	        L'usage de "saisies d'écran " ou des interfaces de type Qt ou XD seront, même s'il sont simplistes des outils explicatifs.	
+
+
+	       Conseil openClassrooms:
+
+	        Langage compréhensible.
+		Fond et forme simples.
+		Éléments visuels.
+		Solution au problème.
+		Structure logique.
+		Sommaire.
+		Fonctionnalité de recherche.
+		Contenu accessible
+
+	       
+
+	      La démonstration de l'applicatif sur PC et en ligne via un localhost:8080 est conseillé. Si le projet est plus abouti une boucle interne au réseau entreprise
+	      serait une simultation convaincante.
+
+ 

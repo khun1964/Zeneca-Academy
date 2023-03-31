@@ -1,0 +1,128 @@
+TP Ansible
+
+
+PS C:\Users\khun1\Downloads\Ansible tp 18 02 2022> ssh
+
+PS C:\Users\khun1\Downloads\Ansible tp 18 02 2022> bash
+khun@MSI:/mnt/c/Users/khun1/Downloads/Ansible tp 18 02 2022$ pip3 install ansible
+
+
+si pas de linux installer -- taper : wsl -l -v
+
+liste puis choix UBuntu etc
+
+wsl --set default  ubuntux (type de linux)
+
+si PB de python : sudo apt install python-pip
+
+
+
+1  Déterminez si Python est déjà installé.
+
+     $ python --version
+
+
+
+
+2   Si Python 2.7 ou version ultérieure n'est pas installé, installez Python 3.7 à l'aide du gestionnaire de package de votre distribution. Le nom de la commande et du package varie :
+
+  
+  Sur les dérivés Debian, comme Ubuntu, utilisez APT :
+
+
+    $ sudo apt-get install python3.7
+
+    Sur Red Hat et dérivés, utilisez yum.
+
+    $ sudo yum install python37
+
+    Sur SUSE et dérivés, utilisez zypper.
+
+    $ sudo zypper install python3-3.7
+
+
+
+3   Ouvrez une invite de commande ou un shell, et exécutez la commande suivante pour vérifier que Python est installé correctement.
+
+    $ python3 --version
+    Python 3.7.3
+
+
+   
+  ** Si cela ne fonctionne pas **  
+
+  Sudo apt update : cela permet de mettre à jour et de prendre à main.
+
+
+**** Installer docker sur ansible:
+
+his plugin is part of the community.docker collection (version 2.0.2).
+
+You might already have this collection installed if you are using the ansible package. It is not included in ansible-core. To check whether it is installed, run ansible-galaxy collection list.
+
+To install it, use: ansible-galaxy collection install community.docker.
+
+To use it in a playbook, specify: community.docker.docker_container.
+
+Vérifier   : ansible galaxy  collection liste
+
+
+lancer docker pour ansible via bash : pip install docker 
+
+Puis  :  pip install docker-compose
+
+
+khun@MSI:/mnt/c/Users/khun1/Downloads/Ansible tp 18 02 2022$ ansible-playbook playbooks/playbook.yml 
+[WARNING]: No inventory was parsed, only implicit localhost is available
+[WARNING]: provided hosts list is empty, only localhost is available. Note that the implicit localhost does not match 'all'
+
+
+
+
+****  créer un dossier  docker-compose.yml
+
+ 
+version: '3'
+
+services:
+  owncloud: # nom du service/conteneur
+    image: owncloud # nom image
+    restart: always
+    ports: 
+      - 8080:80 # ports cote hote : cote conteneur
+    volumes:
+      - C:\Users\khun1\Downloads\Ansible tp 18 02 2022\owncloud\data
+
+  mysql: # bdd propre au owncloud
+    image: mariadb # img a pull
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root #mdp root
+      MYSQL_DATABASE: db
+
+
+  volumes:
+    owncloud:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

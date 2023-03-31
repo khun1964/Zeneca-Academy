@@ -1,0 +1,40 @@
+au début créer a new repositery
+
+Avec New ou à droite dans le menu déroulant ou situé avec le + ( new repository).
+
+Owner / Repository name.
+
+example:
+
+khun1964 / jboss
+
+Aller dans le dossier à la racine du pc. Enclencher la console/ligne de commande & effacer puis écrire CMD.
+
+git init
+
+git commit -m C:\Users\khun1\Desktop\boule-de-haine-conciliante\jboss
+
+à la requête : git remote add origin https://github.com/khun1964/jboss.git / la réponse remote origin already exists
+
+git branch -M main
+
+git push -u origin main
+
+
+// code complet // 
+
+create a new repository on the command line
+
+echo "# jboss" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/khun1964/jboss.git
+
+
+push an existing repository from the command line
+
+git remote add origin https://github.com/khun1964/jboss.git
+git branch -M main
+git push -u origin main

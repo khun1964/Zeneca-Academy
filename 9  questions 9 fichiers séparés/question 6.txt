@@ -1,0 +1,15 @@
+GitHub Zeneca Academy
+
+url: https://github.com/khun1964/Zeneca-Academy
+
+Référence à :  Docker / kubernette / Jira / Postman / Ansible  / Maven / Git
+
+
+
+Réponse 6: Le propre du DevOPs c'est d'automatiser les taches, optimiser la dépense et virtualiser les données.
+	   les choix en Clouds sont multiples : AWS / Azure / AliExpress / Google.
+           Plus précisément il faut faire le relais et la sauvegarde des données. 
+
+           L'équipe réseau de l'entreprise peut rester maître des données et mettre via un double firewall (espace tampon sécurisé):
+           Protéger ses données et via l'espace virtualisé de façade générer un lien vers une BDD externe consultable via leur portail.
+           Cette BDD peut alimenter par une voie non accessible par le premier portail, mais par le second réseau.

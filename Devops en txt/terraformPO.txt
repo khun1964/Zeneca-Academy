@@ -1,0 +1,36 @@
+terraform {
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 3.27"
+    }
+  }
+}
+
+resource "aws_vpc" "test" {
+  cidr_block = "10.0.0.0/16"
+
+}
+
+provider "aws" {
+
+  profile = "default"
+  region  = "eu-west-2"
+
+}
+
+resource "aws_instance" "app_server" {
+  ami           = "ami-055c6079e3f65e9ac"
+  instance_type = "t2.micro"
+  tags = {
+    Name = "Testterra"
+  }
+}
+
+resource "aws_instance" "new_vm" {
+  ami           = "ami-0015a39e4b7c0966f"
+  instance_type = "t2.micro"
+  tags = {
+    Name = "vm_pierre"
+  }
+}

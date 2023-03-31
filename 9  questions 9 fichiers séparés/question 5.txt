@@ -1,0 +1,28 @@
+GitHub Zeneca Academy
+
+url: https://github.com/khun1964/Zeneca-Academy
+
+Référence à :  Docker / kubernette / Jira / Postman / Ansible  / Maven / Git
+
+
+Réponse 5: La nature du blocage peut être multiple. Ici un blocage complet.
+           Un monitoring aura déjà du être mis en place. Des indicateurs et leurs paramétres associés seraient ainsi visibles. 
+
+           Actions possibles : 
+	   Une relecture du script yml doit être effectuer. Des spécifications peuvent en être l'origine.
+	   L'accès géographique peut être aussi une source de blocage: Penser à étendre l'implantation géographique.
+
+           si : l'application fonctionnait auparavant:
+                une audit interne avec la société et ses techniciens devrait aiguiller et préciser la source du blocage.
+	   si : il ya blocage de ou des formulaires:
+	        Diagnostiquer les interfaces du client est aussi à faire. 
+                Les requêtes et les informations ou commandes (C.R.U.D) peuvent être toutes ou partiellment bloqués.
+
+           Cela donnera des indices des points de faiblesse du code,  des routes, des adresses, des ports utilisés.
+	   Les mises à jours logicielles et de déploiement peuvent être la source du blocage ou de la régression fonctionnelle. 
+	   L'évaluation faite ci-dessus peut être répliquer à son tour pour le déploiement.
+
+           Préconisation : Monitoring & suivi des actions réponses serveurs vs formulaires / fréquences et type des requêtes / temps et intensité d'usage etc  
+
+	   Les indications de réponse à la question N°3 sont aussi autant d'indicateurs de source des erreurs.
+	   Faire appel au log est déjà un réflexe à prendre dès le départ.

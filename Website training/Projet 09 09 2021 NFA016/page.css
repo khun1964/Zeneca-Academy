@@ -1,0 +1,436 @@
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+​
+​
+body {
+   font-family: 'Times New Roman', Times, serif;
+   background: white;
+   width: 1920px;
+   height: auto;
+   }
+​
+​
+​
+​
+​
+/* organisation header */
+​
+header {
+    margin-top: 15px; 
+    height:100px;
+    width:1920px;
+    background-color:white;  
+}
+​
+​
+header ul {
+    font-size: 25px;
+    display:inline-block;
+    width:1000px;
+    height: 80px;
+    margin-left: 120px;
+}
+​
+​
+.row {
+    display:flex;
+    margin-left: 350px;
+}
+​
+​
+#image {
+    background-image: url(logos/Flatkit.png);
+    background-size:10%;
+    background-repeat:no-repeat;
+    margin-left: 40px;
+} 
+​
+​
+​
+.col1 {
+    flex:1;
+    padding:1em;
+} 
+ 
+​
+.options1 {
+    margin-top: 0.4em;
+    width:800px;
+    height:80px;
+    font-size: 20px;
+    padding:0em;
+}
+ 
+.options1 li {
+     display:inline-block;
+     width:100px;
+     text-align:center;
+     
+}
+​
+.options1 a {
+     font-weight: bold;
+     color:black;
+     text-decoration:none;
+}
+​
+​
+​
+​
+.options1 a:hover {
+     color:rgb(240, 21, 21);
+     font-size: 30px;
+     font-weight: bolder;
+ 
+}  
+​
+ 
+​
+​
+​
+.col2 {
+    flex:1;
+    padding:1em;
+}   
+​
+ 
+.options2 {
+    margin-top: 0.12em;
+    width:400px;
+    height:80px;
+    font-size: 20px;
+    padding:0em;
+}
+​
+.options2 .h1 {
+    width:300px;
+}
+​
+​
+.options2 .h1 a:hover {
+    color:rgb(240, 21, 21);
+    font-size: 30px;
+    font-weight: bolder;
+}  
+​
+​
+​
+​
+​
+​
+     /*  organisation main et contact form  */
+​
+​
+main {
+    height:650px;
+    width:1700px; 
+    background-image: url(Action/vue-travaillant.png);
+    background-size:cover;
+    background-repeat:no-repeat;
+    z-index: 3;
+    margin-left: 120px;
+}
+​
+main .blue {
+    background-color:rgb(9, 93, 202);
+    opacity:0.8;
+    z-index: 10;
+    height:650px;
+    width:1700px; 
+  
+}
+​
+main h1 {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: bolder;
+    font-size: 30px;;
+}
+​
+main hr {
+    width:70px;
+    size: 3px;
+    background-color:black;
+    margin-left: 02px;
+}
+​
+​
+​
+.contact_form  {
+    width:400px;
+    list-style-type:none;
+    list-style-position:outside;
+}
+​
+.contact_form {
+    padding:12px;
+    margin-left:270px;
+}
+​
+​
+.contact_form button {
+    width:300px;
+    height:20px;
+    background-color: rgb(15, 65, 160);
+    font-weight: bold;
+    color: whitesmoke;
+    padding:5px 8px;
+}
+​
+​
+.contact_form input {
+    height:20px;
+    width: 300px;
+    border-color: rgb(0, 162, 255);
+    background-color: rgb(227, 227, 235);
+    padding:5px 8px;
+}
+​
+​
+​
+.examen {
+    height: 450px;
+    border-radius:20px;
+    border-style: solid;
+    border-color: aliceblue;
+    background-color: white;
+    font-weight: bolder;
+    color:rgb(12, 12, 12);
+    margin-top: 90px;
+}
+​
+​
+​
+​
+​
+​
+    /* organisation services et détail   */
+
+.what {
+    width:400px;
+    height:150px;
+    text-align:center; 
+    margin: 0 auto;
+}
+​
+​
+.what .p0 {
+    padding: 5px 8%;
+    text-align:center;
+    font-style: normal;
+    font-size: 20px;
+    font-weight: bold;
+    color:rgb(65, 63, 63);
+}
+​
+.what .p1 {
+    height:20px;
+    padding-top: 0%;
+    text-align:center;
+    font-style:normal;
+    font-size:40px;
+    font-weight: bolder;
+    color:black;
+}
+​
+.what hr {
+    width:70px;
+    text-align:center; 
+    color:rgb(27, 25, 25);
+}
+​
+​
+​
+​
+#section {
+    width: 1000px;
+    height: 400px;
+    margin-left: 470px;  /* pareil en donnant de la marge l'on permet une répartition proportionnée dans la div*/
+}
+​
+#section {
+    background-color:white;
+    text-align: center;
+}
+​
+​
+​
+.services {
+    height: 60px;
+    display:inline-block;
+    text-align:center;
+    margin:0 auto;
+}
+​
+​
+​
+.options3 {
+    width:1000px;
+    height:80px;
+    font-size: 17px;
+}   
+​
+​
+.options3 ul {
+    list-style-type: none;
+    list-style-position: inside;
+    display:inline-block;
+    width:1000px;
+}
+​
+.options3 li {
+     display:inline-block;
+     width:200px;
+     text-align:center;   
+}
+​
+.options3 a {
+     font-weight: bold;
+     color:black;
+     text-decoration:none;
+}
+​
+​
+.options3 a:hover {
+     color:rgb(10, 106, 216);
+     font-size: 20px;
+     font-weight: bolder;
+     text-decoration: underline; 
+}  
+​
+​
+​
+​
+​
+#photography {
+     width:1000px;
+     height:300px;
+     background-image: url(Action/cuir.JPG);
+     background-size: 45%;
+     background-repeat:no-repeat;
+     background-position-x: left;
+     background-position-y: -30px;
+ }
+​
+​
+article {
+    margin-left:600px;
+    float:right;
+    height:250px;
+    width:540px;
+    overflow:hidden;
+    margin:0 auto;
+}
+​
+​
+article {
+    font-weight:bold;
+    font-size:22px;
+    padding:5px;
+}
+​
+article h1{
+    font-size: 20px;
+    color: black;
+    font-weight: bold;
+    text-align: left;
+}
+​
+​
+.star h1 {
+    font-weight: bolder;
+    font-size: 25px;
+    color: black;
+}
+​
+p {
+    font-style: oblique;
+    font-size: medium;
+    color: rgb(77, 209, 241);
+    text-align: left;
+}
+​
+.final-railling {
+    padding:10px;
+    margin: 15px 0px;
+    font: bold;
+    color: white;
+    background-color: rgb(12, 85, 168);
+    text-align:center;
+    font-style: normal;
+    font-size: 20px;
+    height: 50px;
+    width:1000px;
+}
+
+
+
+
+.final-railling:hover {
+    color:rgb(240, 21, 21);
+    font-size: 20px;
+    font-weight: bolder;
+
+}  
+
+
+<!--  <div style="position: absolute; z-index:100"> This is in background</div> -->
+
+<div style="position: absolute; z-index:5000">This is in foreground</div> -->
+
+
+ 
+@media all and (min-width:50px) and (max-width:150px) {
+    div {
+        column-count:1;
+        column-width:100px;
+     }
+
+    footer nav {
+        height:300px;
+        column-count: 1;
+        column-width: 110px;
+    }
+
+    footer {
+        height: 110px;
+        column-count:1;
+        column-width: 148px;
+    }
+
+    footer li {
+        height:50px;
+        column-count:1;
+        column-width: 110px;
+    }
+
+
+
+@media all and (min-width:150px) and (max-width:200px) {
+div {
+    column-count: 2;
+    column-width: 200px;
+}
+
+
+nav {
+    column-count: 2;
+    column-width: 100px;
+}
+
+}
+@media all and (min-width:200px) and (max-width:300px) {
+div {
+    column-count: 3; 
+    column-width: 300px;
+}
+
+
+nav {
+    column-count: 3;
+    column-width: 100px;
+}
+
+} 

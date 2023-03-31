@@ -1,0 +1,16 @@
+GitHub Zeneca Academy
+
+url: https://github.com/khun1964/Zeneca-Academy
+
+Référence à :  Docker / kubernette / Jira / Postman / Ansible  / Maven / Git
+
+
+Réponse 7: Cette réponse demande de l'expérience. 
+	   Cependant au début du projet il y a des choix faits de technologies.
+           Il y a une démarche d'optimisation à la fois les langages/type de BDD/pour le plus de souplesse évolutive.
+
+           Solution: Une régression non pas du code mais vers une version antérieure peut fonctionner temporairement.
+		     De plus si le temps imparti est suffisant, très conjoncturel donc, des logiciels ou des BDD équivalents peuvent être rechercher pour effectuer une migration.
+		     Cependant si la suite logicielle est indispensable un programme intermédiaire peut être générer pour patcher temporairement l'ancienne technologie.
+		     Autre solution, l'évolution d'un programme déjà existant plus ancien ou une version communicant avec un langage plus adapté peut faire office de relais.
+	             Dernier point le plus simple est de contacter l'éditeur du logiciel pour en connaître les particularités et leurs préconisations si alternative il y a. 

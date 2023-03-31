@@ -1,0 +1,10 @@
+TerraForm
+
+c'est une I.A.C : infrastructure a Code.
+
+On code le main.tf en HCL équivalent yaml.
+
+il gére les EC2 ( VM) / les VPC ( virtual private cloud) / la SG ( gestion securité).
+
+Terraform avec ses script décrit et fait créer l'infrastructure nécessaire.
+Ansible va gérer celle-ci. Il ne peut gérer la configuration comme terraform qui veut 10 VM et vérifie qu'elles existent.

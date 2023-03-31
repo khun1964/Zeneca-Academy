@@ -1,0 +1,48 @@
+Fichier Terraform
+
+Website assistance terraform : https://registry.terraform.io/providers/hashicorp/aws/latest/docs
+
+Configuration dans le fichier main.tf
+
+Terraform 0.13 and later:
+
+terraform {
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 3.0"
+    }
+  }
+}
+
+# Configure the AWS Provider
+provider "aws" {
+  region = "us-east-1"
+}
+
+# Create a VPC
+resource "aws_vpc" "example" {
+  cidr_block = "10.0.0.0/16"
+}
+
+
+
+
+Fichier Sensible :
+
+provider "aws" {
+  region     = "us-west-2"
+  access_key = "my-access-key"
+  secret_key = "my-secret-key"
+}
+
+
+
+Créer une instance EC2.
+Puis un VPC: / 0.0.0.1 /.
+
+Usage de plan : lance
+
+Usage d'init :  .terraform.init qui sert à stocker (provider/plugin/la configuration déjà installer). 
+
+Usage  apply :

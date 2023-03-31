@@ -1,0 +1,30 @@
+GitHub Zeneca Academy
+
+url: https://github.com/khun1964/Zeneca-Academy
+
+Référence à :  Docker / kubernette / Jira / Postman / Ansible  / Maven / Git
+ 
+
+
+Réponse 1: Pour tester avant d'être implémenter il faut prévoir deux étapes bien distinctes :
+
+	   1/ présenter l'application sur une IDE Visual studio Code ou Eclipse.
+	      cela oblige avec visual studio et eclipse d'intégrer pour le Java ( la langue inforamtique ici utilisée) un JDK et/ou JRE compatible.
+
+		Eclipe : ouvrir le fichier télécharger d'abord en le décompressant puis en choisisant ouvrir en projet Maven / run as maven build.
+	        tout est dans le menu déroulant? sinon aide au 
+	        https://openclassrooms.com/fr/courses/6106191-installez-votre-environnement-de-developpement-java-avec-eclipse/6250061-utilisez-l-editeur-visual-studio-code 
+
+		Visual studio demande aussi l'installation du JDK et/ou JRE mais aussi un chemin ou path permettant de reconnaitre la ligne de commande.
+	        Il faut aussi erreur que j'ai faite vérifier le fichier pom.xml 
+		pour le chemin ou path : il faut selon les système aller dans démarrer / variables d'environnement ou dans panneau de configuration que l'on peut aussi appeller
+	        Taper a propos de - paramétres associés - Paramétres avancés du sytème -Variables d'environnement ( enfin) / aller dans le second panneau en dessous = Variables système
+                Y chercher Path -- modifier et ajouter le chemin de votre fichier à traiter.
+
+	       * Problème Javac non résolu cela bloque et on cherche.
+
+
+	        
+	    2/ pour tester en configuration plus réel l'on peut toujours avec visual studio code ( je ne l'ai pas fait avec eclipse) créer un docker et y alimenter le projet.
+
+

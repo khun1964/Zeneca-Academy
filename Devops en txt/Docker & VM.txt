@@ -1,0 +1,83 @@
+Docker vs machine virtuelle (VM) - Comprendre les différences 
+
+
+L'une des questions fréquemment posées à propos de Docker est de savoir en quoi il diffère de la VM (machine virtuelle).
+
+En ce qui concerne l'infrastructure cloud, la machine virtuelle a été la norme de référence pour nombre de ses avantages.
+Cependant, que se passerait-il si vous aviez une alternative à une machine virtuelle plus légère, économique et évolutive. 
+C'est précisément ce que Docker est.
+
+Docker est une technologie basée sur des conteneurs qui vous permet de développer des applications distribuées. 
+
+En termes simples, il permet d'exécuter ce qui semble être sur de nombreux ordinateurs séparés sur du matériel, c'est-à-dire un ordinateur.
+Chaque machine virtuelle nécessite son système d'exploitation sous-jacent, puis le matériel est virtualisé.
+What is Docker?
+
+Docker est un outil qui utilise des conteneurs pour faciliter la création, le déploiement et l'exécution d'une application.
+Il lie l'application et ses dépendances à l'intérieur d'un conteneur.
+
+
+Docker vs. VM
+
+Je vais maintenant vous dire les différences significatives entre les conteneurs Docker et les machines virtuelles.
+Eh bien, les différences significatives sont la prise en charge, la sécurité, la portabilité et les performances du système d'exploitation.
+
+Alors discutons chacun de ces termes un par un.
+
+Support du système d'exploitation
+
+Traditionnel vs nouvelle génération
+
+La prise en charge du système d'exploitation de la machine virtuelle et du conteneur Docker est très différente.
+Dans l'image ci-dessus, vous pouvez voir que chaque machine virtuelle a son système d'exploitation invité au-dessus du système d'exploitation hôte, ce qui alourdit les machines virtuelles.
+Alors que d'un autre côté, les conteneurs Docker partagent le système d'exploitation hôte, et c'est pourquoi ils sont légers.
+
+Le partage du système d'exploitation hôte entre les conteneurs les rend très légers et les aide à démarrer en quelques secondes. 
+Par conséquent, la surcharge de gestion du système de conteneurs est très faible par rapport à celle des machines virtuelles.
+
+Les conteneurs Docker conviennent aux situations où vous souhaitez exécuter plusieurs applications sur un seul noyau de système d'exploitation. 
+Mais si vous avez des applications ou des serveurs qui doivent s'exécuter sur différentes versions de système d'exploitation, des machines virtuelles sont nécessaires.
+Sécurité
+
+La machine virtuelle ne partage pas le système d'exploitation et il existe une forte isolation dans le noyau hôte. 
+Par conséquent, ils sont plus sûrs que les conteneurs.
+Un conteneur présente de nombreux risques de sécurité et des vulnérabilités car les conteneurs ont un noyau hôte partagé.
+
+De plus, étant donné que les ressources du docker sont partagées et non espacées de noms, un attaquant peut exploiter tous les conteneurs d'un cluster s'il a accès ne serait-ce qu'à un seul conteneur. 
+Dans une machine virtuelle, vous n'obtenez pas d'accès direct aux ressources, et l'hyperviseur est là pour restreindre l'utilisation des ressources dans une machine virtuelle.
+
+
+
+Portabilité
+
+Les conteneurs Docker sont facilement portables car ils ne disposent pas de systèmes d'exploitation séparés. Un conteneur peut être porté sur un autre système d'exploitation et il peut démarrer immédiatement. 
+D'un autre côté, les machines virtuelles ont un système d'exploitation distinct, de sorte que le portage d'une machine virtuelle est difficile par rapport aux conteneurs, et le portage d'une machine virtuelle prend également beaucoup de temps en raison de sa taille.
+
+À des fins de développement où les applications doivent être développées et testées sur différentes plates-formes, les conteneurs Docker sont le choix idéal.
+Performance
+
+Comparer des machines virtuelles et des conteneurs Docker ne serait pas juste car ils sont tous deux utilisés à des fins différentes. 
+Mais l'architecture légère de docker son fonctionnalité moins gourmande en ressources en fait un meilleur choix qu'une machine virtuelle. 
+En conséquence, quels conteneurs peuvent démarrer très rapidement par rapport à ceux des machines virtuelles, et l'utilisation des ressources varie en fonction de la charge ou du trafic qu'elles contiennent.
+
+Contrairement au cas des machines virtuelles, il n'est pas nécessaire d'allouer des ressources de manière permanente aux conteneurs. 
+La mise à l'échelle et la duplication des conteneurs est également une tâche facile par rapport à celle des machines virtuelles, car il n'est pas nécessaire d'y installer un système d'exploitation.
+
+Conclusion
+
+Voici un tableau qui conclut sur les différences entre une machine virtuelle et un conteneur Docker.
+
+
+Machine virtuelle 	                                                       Conteneur Docker
+Isolation des processus au niveau matériel 	                               Isolation des processus au niveau du système d'exploitation
+Chaque machine virtuelle a un système d'exploitation distinct                  Chaque conteneur peut partager le système d'exploitation
+Bottes en quelques minutes 						       Démarre en quelques secondes
+Les machines virtuelles sont de quelques Go 				       Les conteneurs sont légers (Ko / Mo)
+Les VM prêtes à l'emploi sont difficiles à trouver 			       Les conteneurs Docker pré-construits sont facilement disponibles
+Les VM peuvent facilement se déplacer vers un nouvel hôte 		       Les conteneurs sont détruits et recréés au lieu de se déplacer
+La création de VM prend un temps relativement plus long 	               Les conteneurs peuvent être créés en quelques secondes
+Plus d'utilisation des ressources 	                                       Moins d'utilisation des ressources
+
+
+
+

@@ -1,0 +1,28 @@
+ECS : containeur d'Amazone 
+Elastic container solution
+
+
+Après avoir lancer le fichier yml
+il faut calibrer les runners.
+
+
+Problème de reroutage gitlab via localhost:
+
+ouvrir en mode administrateur block-note puis
+
+C / window / System32 / drivers / etc / hosts : Ajouter une troisième ligne à Docker Desktop
+						127.0.0.1	gitlab
+
+
+Nettoyage complet :
+
+- docker rm -f $ (docker ps -aq)
+
+- docker system prune // valider par Y
+
+- docker network prune  // valider par Y
+
+- docker volume prune // valider par Y
+
+- rm -f -git
+

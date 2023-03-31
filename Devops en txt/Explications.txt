@@ -1,0 +1,75 @@
+28 / 01 /2022 
+
+Monitoring
+
+
+Un conteneur c'est un répertoire qui est cadré par un paramétrage : son volume/capacité sur le disque dur, sa mémoire vive/ram, des logiciels, ses accès.
+Kubernetes génére un ensemble de conteneurs. Il est un orchestrateur qui au utiliser docker pour ses actions.
+
+Promotheus : temps réel / il les garde 7 jours. transfert ou copie si l'on veut avoir une tracabilité longue.
+Possibilité de générer des calculs staistiques par minutes puis heures puis jours.
+
+il va chercher les données dans le temps programmé à partir d'une liste prédéfinie.
+habituellement ce mouvement est inverse; les données collectées vont vers la base de manière automatisée.
+Il est toujours en mode Pull.
+
+SQL : SELECT / FROM /  WHERE
+
+influx est plus logique : On part de la table FROM puis ou on cherche ( attribut ) puis SELECT ( la jointure que l'on veut).
+
+promotheus est utiliser par les DevOps et les Administrateurs/Ops.
+
+Cela permet de réaliser des K.P.I
+
+
+promotheus : interface graphique des requêtes 
+
+exemple sum(node_cpi_seconds_total{cpu="0"})/3600
+
+SELECT sum(value)
+FROM node_cpu_second_total
+WHERE cpu="0"
+group by cpu
+
+pour calculer son temps de travail réel
+Relance (node_cpi_seconds_total{cpu="0", mode="idle"})
+
+Puis division:   (node_cpi_seconds_total{cpu="0", mode="idle"}) /  sum(node_cpi_seconds_total{cpu="0"})
+
+PB il ne sait pa s que c'est un scalar : valeur et non information entre "
+
+Donc
+
+scalar(node_cpi_seconds_total{cpu="0", mode="idle"}) / scalar(sum(node_cpi_seconds_total{cpu="0"})) * 100 = % du temps 
+A vérifier ( régle de trois).
+
+
+
+
+Software powerBi : business intelligence lié à l'analyse des métriques.
+Data Analyst : Usage de données dans une orientation statistique.
+
+Scalibilité :extensibilité.
+
+consistent : cohérent, conséquent.
+
+availability : accesibilité, disponibilité.   // risque lors d'une communication asychrone de perde des données. 
+
+
+Neo4j : les tables sont identifiées par une id et la relation entre elles sont un id avec ses indicateurs.
+        puis lorsqu'on lance la requête celle-ci n'est pas en jointure comme avec le langage sql mais on lance une recherche par le chemin le plus court.
+        C'est une recheche via un graphe type A star étoile. 
+
+cAtVisor : c'est un logiciel qui récupére les métriques.
+
+
+à vérifier
+Kube : docker-compose K
+
+
+Choix du RAID : 0 / découpage en 2 et répartition sur deux disques dur.
+		1 / copie d'un fichier = doublon ou back-up.
+		5 / la moitié de chaque disque sert de lieu de stockage.
+
+
+On ne parle pas de BDD mais de SGBD : système de gestion de base de donnée avec un langage dédié SQL / MySQL etc.

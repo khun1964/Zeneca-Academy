@@ -1,0 +1,18 @@
+GitHub Zeneca Academy
+
+url: https://github.com/khun1964/Zeneca-Academy
+
+Référence à :  Docker / kubernette / Jira / Postman / Ansible  / Maven / Git
+
+
+
+Réponse 8: L virtualisation par le cloud permet via la scalisation. L'on peut d'augmenter les capacités soit de stockage soit de traitement.
+	   S'il y a trop grande sollicitation de connexion puis de traitement cela sature le réseau et plante le traitement.
+
+	   
+Solutions : 1 / via kubernettes et ses nodes l'on adapte la demande de capacité au besoin cela de manière variable car le coût 
+                le sera tout autant elle sera verticale et horizontale.
+
+	    2 / Si il y a un déficit continu, c'est struturel. 
+                Il faut revoir le script de départ et des paramêtres des besoins initiaux.	 
+ 

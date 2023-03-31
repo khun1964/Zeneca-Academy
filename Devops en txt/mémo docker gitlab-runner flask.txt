@@ -1,0 +1,282 @@
+0  passer de powershell à bash dans le terminal : taper bash
+
+
+1 Avant toute chose; lancer WSL2 / linux serveur pour window : wsl2
+ 
+  wsl -d docker-desktop
+
+
+2  Avant tout Créer tout  un environnement virtuel.
+
+       python -m venv .
+ 
+
+3   Démarrage : docker run -d -p 80:80 docker/getting-started
+
+Vous remarquerez que quelques indicateurs sont utilisés.
+
+ Voici quelques informations supplémentaires :
+
+    -d -exécuter le conteneur en mode détaché (en arrière-plan)
+    -p 80:80 -mapper le port 80 de l’ordinateur hôte au port 80 dans le conteneur
+    docker/getting-started -l’image à utiliser
+
+ Conseil
+
+Vous pouvez combiner des indicateurs à un seul caractère pour raccourcir la commande complète.
+ Par exemple, la commande ci-dessus peut être écrite comme suit : cli
+
+docker run -dp 80:80 docker/getting-started
+
+
+
+
+4   création d'un conteneur docker. || 
+    
+    docker-machine create
+
+
+    si déjà construit lancer dans l'interface docker!
+
+    lancer docker avec :
+
+       docker compose up  // il faut penser à détruire le container ou l'arréter quant il ne sert plus à rien.
+
+
+5    création d'un gitlab/gitlab-runner
+
+     website : https://hub.docker.com/r/gitlab/gitlab-runner
+
+             
+     sudo apt install gitlab-runner
+
+     Puis gitlab-runner register
+
+     possible de refaire : sudo gitlab-runner
+
+
+
+
+6    Enregistrement du gitlab-runner:
+
+     docker run --rm -it -v $(pwd)/config:/etc/gitlab-runner gitlab/gitlab-runner register
+
+
+
+7    installation du gitlab-runner:
+
+     docker-compose pull pour récupérer l'imagepip
+
+     docker-compose up pour lancer et installer
+
+
+     puis  étape 1 :
+
+
+
+                    Git global setup
+
+     git config --global user.name "Administrator"
+     git config --global user.email "admin@example.com"
+
+
+
+                    Create a new repository
+
+     git clone http://localhost:9000/root/tp.git
+     cd tp
+     touch README.md
+     git add README.md
+     git commit -m "add README"
+     git push -u origin master
+
+
+
+                   Push an existing folder
+
+     cd existing_folder
+     git init
+     git remote add origin http://localhost:9000/root/tp.git
+     git add .
+     git commit -m "Initial commit"
+     git push -u origin master
+
+
+
+                   Push an existing Git repository
+
+     cd existing_repo
+     git remote rename origin old-origin
+     git remote add origin http://localhost:9000/root/tp.git
+     git push -u origin --all
+     git push -u origin --tags
+
+
+puis créer des liens interactifs avec chaque gitlab-runner :
+     
+     docker exec -it runner1 gitlab-runner register
+     docker exec -it runner2 gitlab-runner register  
+
+
+
+Mais avant :
+
+khun@MSI:/mnt/d/POEC Aston/Manipulation BDD docker gitlab/TP$ gitlab-runner register
+ERRO[0000] Docker executor: prebuilt image helpers will be loaded from /var/lib/gitlab-runner.
+WARNING: Running in user-mode.
+WARNING: The user-mode requires you to manually start builds processing:
+WARNING: $ gitlab-runner run
+WARNING: Use sudo for system-mode:
+WARNING: $ sudo gitlab-runner...
+
+Please enter the gitlab-ci coordinator URL (e.g. https://gitlab.com/):
+http://localhost:9000
+Please enter the gitlab-ci token for this runner:
+_MsjfrcoN1WhyX4ZXfMn
+Please enter the gitlab-ci description for this runner:
+[MSI]: installation dans docker de 2 runners
+Please enter the gitlab-ci tags for this runner (comma separated):
+docker
+
+
+Suite 
+
+khun@MSI:/mnt/d/POEC Aston/Manipulation BDD docker gitlab/TP$ docker exec -it runner1 gitlab-runner register
+Runtime platform                                    arch=amd64 os=linux pid=85 revision=98daeee0 version=14.7.0
+Running in system-mode.
+
+Enter the GitLab instance URL (for example, https://gitlab.com/):
+http://gitlab:9000
+Enter the registration token:
+_MsjfrcoN1WhyX4ZXfMn
+Enter a description for the runner:
+[824b8acc005b]:
+Enter tags for the runner (comma-separated):
+docker
+Registering runner... succeeded                     runner=_Msjfrco
+Enter an executor: shell, ssh, virtualbox, docker-ssh+machine, kubernetes, custom, docker, docker-ssh, parallels, docker+machine:
+shell
+Runner registered successfully. Feel free to start it, but if it's running already the config should be automatically reloaded! 
+khun@MSI:/mnt/d/POEC Aston/Manipulation BDD docker gitlab/TP$ docker exec -it runner2 gitlab-runner register
+Runtime platform                                    arch=amd64 os=linux pid=25 revision=98daeee0 version=14.7.0
+Running in system-mode.
+
+
+
+Enter the GitLab instance URL (for example, https://gitlab.com/):
+http://gitlab:9000
+Enter the registration token:
+_MsjfrcoN1WhyX4ZXfMn
+Enter a description for the runner:
+[7d8917315650]:
+Enter tags for the runner (comma-separated):
+docker
+Registering runner... succeeded                     runner=_Msjfrco
+Enter an executor: docker-ssh, shell, docker-ssh+machine, virtualbox, docker+machine, kubernetes, custom, docker, parallels, ssh:
+docker
+Enter the default Docker image (for example, ruby:2.6):
+python
+Runner registered successfully. Feel free to start it, but if it's running already the config should be automatically reloaded! 
+
+
+
+
+8 ----Passer au dossier maitre qui posséde le dockerinstall
+
+      .\Scripts\Activate.ps1
+
+
+10 ---Installer pip qui est un module : python -m pip install  ( ajout possible à la suite du code --upgrade pip)
+       m pour module.
+
+
+
+11 ---Installer Flask qui est requis via le fichier requirements.txt
+
+     pip install flask
+
+       A minimal Flask application looks something like this:
+
+
+      from flask import Flask
+
+      app = Flask(__name__)
+
+      @app.route("/")
+      def hello_world():
+       return "<p>Hello, World!</p>"    
+
+      # lancement de l'application
+
+      if __name__ == '__main__':
+         app.run()
+ 
+
+
+
+11 /// Créer un docker-compose.yml
+
+       version: '3' // version d'écriture yml
+
+
+       services:
+        app:
+          build: .
+          ports:
+           - 8080:5000
+    
+
+12 /// Créer un Dockerfile :
+
+       FROM python
+
+
+       WORKDIR /app
+       COPY . .
+       RUN pip install -r requirements.txt
+       EXPOSE 5000
+
+
+       CMD [ "flask", "run", "--host=0.0.0.0" ]
+
+13 ___ passer à un des dossiers ici .API
+
+	cd .\.api\
+
+	Puis commande : ls
+
+
+14 ___ gitlab community azerty azerty 
+
+
+15 /// stopper tout les docker : aller à docker côté droit sur visual studio code de maniére manuelle.
+       ou en ligne de commande  docker kill $(docker ps -q)
+					             ps pour liste						
+						         q c'est pour les id des conteneurs		  
+
+
+   /// en ligne de commande détruire tous les dockers : docker rm -f $ (docker ps -aq)
+                                                             remote
+					                          force
+						                        liste de tous les id des conteneurs 
+
+
+   /// en ligne de commande détruire les images des dockers : docker rmi $(docker images -q)
+								   remote image	
+	
+
+16 *** développer le fichier de déploiement : requirements.txt ici en Bash
+
+	khun@MSI:/mnt/d/POEC Aston/Manipulation BDD docker gitlab/flask_-_Copie$ pip freeze
+
+17 *** activer sonarqube via l'interface de docker externe puis localhost:7000/
+       Analyse a project
+       provide a token
+
+       Provide a token
+       flask-demo: b153443c391b3696e3e04876c4f118fe5730b378
+       The token is used to identify you when an analysis is performed. 
+       If it has been compromised, you can revoke it at any point of time in your user account.
+	
+
+	sonar-scanner.bat -D"sonar.projectKey=b153443c391b3696e3e04876c4f118fe5730b378" -D"sonar.sources=." -D"sonar.host.url=http://localhost:7000" -D"sonar.login=b153443c391b3696e3e04876c4f118fe5730b378"

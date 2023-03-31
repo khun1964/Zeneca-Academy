@@ -1,0 +1,310 @@
+GitHub Zeneca Academy
+
+url: https://github.com/khun1964/Zeneca-Academy
+
+Référence à :  Docker / kubernette / Jira / Postman / Ansible  / Maven / Git
+ 
+
+
+Réponse 1: Pour tester avant d'être implémenter il faut prévoir deux étapes bien distinctes :
+
+	   1/ présenter l'application sur une IDE Visual studio Code ou Eclipse.
+	      cela oblige avec visual studio et eclipse d'intégrer pour le Java ( la langue inforamtique ici utilisée) un JDK et/ou JRE compatible.
+
+		Eclipe : ouvrir le fichier télécharger d'abord en le décompressant puis en choisisant ouvrir en projet Maven / run as maven build.
+	        tout est dans le menu déroulant? sinon aide au 
+	        https://openclassrooms.com/fr/courses/6106191-installez-votre-environnement-de-developpement-java-avec-eclipse/6250061-utilisez-l-editeur-visual-studio-code 
+
+		Visual studio demande aussi l'installation du JDK et/ou JRE mais aussi un chemin ou path permettant de reconnaitre la ligne de commande.
+	        Il faut aussi erreur que j'ai faite vérifier le fichier pom.xml 
+		pour le chemin ou path : il faut selon les système aller dans démarrer / variables d'environnement ou dans panneau de configuration que l'on peut aussi appeller
+	        Taper a propos de - paramétres associés - Paramétres avancés du sytème -Variables d'environnement ( enfin) / aller dans le second panneau en dessous = Variables système
+                Y chercher Path -- modifier et ajouter le chemin de votre fichier à traiter.
+
+	       * Problème Javac non résolu cela bloque et on cherche.
+
+
+	        
+	    2/ pour tester en configuration plus réel l'on peut toujours avec visual studio code ( je ne l'ai pas fait avec eclipse) créer un docker et y alimenter le projet.
+
+
+
+
+Réponse 2: Il faut travailler dans le cadre de cet atelier avec trois documents explicites et intelligible par tous (ce n'est pas une mince affaire):
+           
+	   1/ un document contenant le cahier des charges : 
+		Introduction = ce que veut le client
+                Détails et clarification pour chaque service =  Ce quel'on a compris dans la demande (jeu des trois passes: énonciation - retranscription -validation ou infirmation = reprise de la boucle)
+	        Mise en forme du Projet = Ce qui est faisable / le difficile à créer / l'impossibilité technique ou le surcoût tuant le projet.                               
+	        Programme à réaliser : Ce que l'on peut faire et ses étapes + chiffrement des services énoncés  // cela alimentera le Backlog et par la suite les backlog spring
+                Validation + réserve client et équipe devOps = Avis MOA et MOE
+ 		Un planning devra être mis en place ainsi que les applications et leurs incrémentations attendues. Cela fait partie du chiffrage.
+
+           2/ Un document de conception technique : expliquant chaque étape et sa relation avec le cahier des charges
+                Chaque étape donnera lieu au détail : choix de la technologie et du langage.
+			                              présentation de bouts de code et son lien avec les interfaces client.
+						      Le lien entre chaque étapes et implémentation au projet permettra un test explicatif au client.
+		Un recapitulatif de l'aspect UI : Il sera nécessaire pour expliquer l'usage mais aussi l'importance des cycles élovutifs du projet ainsi que son coût. 
+
+		Important : écrire à la fois le manuel technique en codant ainsi que le manuel utilsateurs qui lui sera relu et réécrit pour aller au plus pratique au plus clair.
+
+		Conseils : https://www.techsmith.fr/blog/creer-le-guide-d-utilisation-parfait/
+
+		Comment faire la documentation d'un API ?
+	        La documentation d'une API devrait comporter au minimum les éléments suivants :
+
+                 la manière de s'authentifier s'il s'agit d'une API privé / standard ou requête spécifiques entreprises (voir cahier des charges)
+                 la définition des endpoints / étapes correspondants aux services et formumlaires.
+                 les paramètres éventuels : standards respectant la RGPD ( https://www.cnil.fr/fr/reglement-europeen-protection-donnees)
+                 quelques extraits de code: saisie écran ou tests sur un IDE
+                 des exemples de requêtes et de réponses.
+              
+
+
+	   *Cette étape est importante car elle peut orienter des modifications du projet ou son arrêt.
+	     Arret possible ou réorientation, si bien sur en plus du cahier des charges on produit un document technique énoncant et présentant l'objet attendu.
+             Celui-ci sera confronté à la réalité et fonctionnalité réalisée ou réalisable. 
+             Ce qui peut sonner l'arret ou des modifications substancielle si l'équipe product-owner en accord avec son client a la philosophie agile intégrée dans son
+	     sytème de fonctionnement et donc décisionnel. 
+
+
+	   3 / Le document Utilisateur : l'usage est autant pour le client que les futures utilisateurs de l'applicatif.
+
+	       *Important le Côté UI : un document utilisateur n'est pas un document technique pour les technos !
+
+                La Régle : Ce que va sans dire va mieux en le disant.
+
+	        Sauter des étapes évidentes c'est comme sauter des étapes d'une démonstration mathématique à un littéraire. C'est le perdre définitivement !
+
+                   
+	        Chaque interface / chaque formulaire doit être clairement présenter, expliquer et être relier à une tâche de l'application demandée.
+
+               *La possibilité des sauvegardes de chaque étapes est une nécessité pour l'usager même s'il coûte de la bande passante et de l'espace mémoire.
+
+
+	        L'usage de "saisies d'écran " ou des interfaces de type Qt ou XD seront, même s'il sont simplistes des outils explicatifs.	
+
+
+	       Conseil openClassrooms:
+
+	        Langage compréhensible.
+		Fond et forme simples.
+		Éléments visuels.
+		Solution au problème.
+		Structure logique.
+		Sommaire.
+		Fonctionnalité de recherche.
+		Contenu accessible
+
+	       
+
+	      La démonstration de l'applicatif sur PC et en ligne via un localhost:8080 est conseillé. Si le projet est plus abouti une boucle interne au réseau entreprise
+	      serait une simultation convaincante.
+
+
+
+
+Réponse 3: Dabord un petit rappel des erreurs : il y a cinq classes de type d'erreur pour une connexion serveur.
+
+	   chaque code commence par un chiffre faisant référence à un code d'état : 1XX / 2XX / 3XX / 4XX / 5XX
+	   * Les X seront remplacés par 0 ou un autre chiffre.
+
+	   On commence avec  1XX qui est une demande d'information, le serveur à reçu et compris = délai d'attente 
+	    // dans le cas étudié ce n'est pas le cas à la question posée 
+
+	   Puis 2XX qui est une demande qui réussie.
+		// dans le cas étudié ce n'est pas le cas à la question posée 
+
+  	   Puis 3XX qui fait une ou des redirections.
+		 // dans le cas étudié cela peut être une indication à la question posée.
+		    * une redirection vers une page différente, problème de configuration donc pour le client testeur.
+		    * L'URL initiale est incorrecte, problème de conception issue du travail des devops.
+
+    	   Puis 4XX qui signale des erreurs côté client.
+		 // dans le cas étudié cela peut être une indication à la question posée.
+		    * au choix une autorisation interdite (problème de configuration des autorisations).
+		    * une requête administrateur d'une connexion non reconnu comme telle.
+		    * Conflit interne serveur : problème de paramêtrage de conception liée aux machines.
+		    * délai d'attente : ici problème matériel ou de routage : problème réseau, si comme présentée testée sur site, cela peut être un problème interne au client.
+
+   	   Et enfin 5XX qui signale des erreurs du côté ou du serveur.
+		 // dans le cas étudié celle-ci est la plus proche à la question posée.
+		    *Authentification réseau inopérante. Problème de conception car le client doit pouvoir tester.
+		    *La configuration des ports et leurs adéquations aux requêtes CRUD se situe dans la page YML.
+		     problème de conception facilement consultable et modifiable.
+		     Il faut relire et corriger les fichiers de configurations.
+		    *Le défaut de connexion côté client vient de la non reconnaissance de la requête voir ci-dessus.
+		     Mais aussi relecture des méthodes programmées pour le fonctions CRUDE dans les pages avec le méthodes.
+		     Relire et corrigées les fichiers ou se trouvent les classes.
+			 
+
+	   En mode console CMD / Powershell il est aussi possible d'effectuer des tests et ainsi accéder aux logs des erreurs étapes par étapes.
+	   Pratique courante en interne quand l'on modifie pas à pas des commandes. Je l'ai beaucoup pratiqué lors de mon stage entreprise avec le jeu DCS world.
+	   Chaque erreurs ou réussites sont chronologiquement visibles et les point d'échec sont situés précisément.
+
+	   Pour plus de détail aller à: https://www.websiterating.com/fr/resources/http-status-codes-cheat-sheet/#summary
+
+	   Il sera donc nécessaire d'obtenir le code erreur pour connaître l'origine de celle-ci pour la corriger. 
+
+	   Un logiciel intéressant s'il l'on monitore l'ensenble des connexions aux ports est Postman, accès et commandes facile mêm pour un n on programmeur.
+
+
+
+
+
+Réponse 4:  Préambule : Il sera nécessaire d'abord de bien vérifier le fichier pom.xml ( POM = Project Object Model).
+         		
+			Rappel :  Comme pour les fichiers YMl il faut détailler le projet: 
+				  son nom, sa version java,
+                        sa configuration et l'ensemble des dépendances qui sont sous un format ressemblant à HTMl; ici XML.
+
+	                site de référence: http://objis.com/auto-formation-maven-pratique/
+
+					   https://indico.mathrice.fr/event/123/sessions/59/attachments/141/175/ansible-presentation-et-tp.pdf
+
+
+
+	                Je résume :   project			La balise racine du fichier pom.xml, elle contient des paramètres pour valider le contenu XML
+			              modelVersion	 	La version du POM (Project Object Model)
+			              groupId			L'identifiant de la personne, équipe, ou entreprise qui développe le projet.
+			              artifactId 		Identifiant du projet (c'est aussi nom du projet au niveau du dossier racine).
+			              version			La version du projet.
+			              packaging 		Représente le format de sortie (généralement : « jar »)
+			              name                	Nom du projet
+			              url			Site web du projet
+			              description		description du projet
+			              dependencies		contient toutes les dépendances (les jar) utilisées dans le projet.
+	
+
+			
+			 configuration basique:
+
+	                              database:			la BDD est en local
+		                         host: localhost
+		                         port: 8080
+		                         name: database_test
+		                         user: user_name
+	   	                         password: my_password
+
+	                              logging:
+		                         level:debug
+		                         file: app.log
+
+	                              dependencies:
+		                         - flask ( il faudra adapter le lien de connexion qui est habituellement en python).
+							
+	   
+      	    Puis l'on va automatiser via le fichier YAMl/YML:  * Astuce intégrer dans un fichier principal le lien vers d'autres fichiers YAML.
+									include:
+									   - main.yaml
+
+								 On peut utiliser Ansible pour compiler les fichiers YML en un seul.
+
+	    Pour ma part n'étant pas expert je vais l'écrire d'un bloc en 4 étapes : build / test / deploy_dev / deploy_prod
+
+		Website: https://cloud.google.com/appengine/docs/flexible/java/configuring-your-app-with-app-yaml?hl=fr
+	   
+		
+
+		runtime: java20   -- version Java utilisée
+
+		instance_class:         "il ya une série de code donnant le nombre de CPU et de mémoire donc variable"		
+
+		image: docker      " il a été générer auparavant
+
+	        services:
+		 - docker:dind   (commande pour obtenir interne au conteneur) 
+
+		variables:
+		  DOCKER_DRIVER: overlay	 "c'est une commande permettant de créer des couches spécifiques dans le conteneur"
+
+		before_script:			"commandes préliminaires pour pouvoir accéder aux donnéees"
+                  - docker info
+		  - docker_login
+
+		build:				" c'est une étape nécessaire avant le deploy "
+		  stage: build		" action attendue"
+		  script:
+		    - mvn clean package     " commande en powershell ou CMD" pour appeller le package"
+                    - docker build	
+
+		deploy:			"déploiement"
+		  stage: deploy
+                  script:
+		    - ansible-playbook   "cette commande fait appel au logiciel d'automatisation des taches"
+					 "playbook est une commande qui contient une liste des taches à effectuer" 
+
+		  environnement:
+                    name: prod
+                    url: "adresse http ou https du fichuier à récupérer; ici un dépôt GIT"
+                  when: manual  "cette page n'est pas automatiser; il faut la déclencher"
+                  only:
+	            -master " branche master dans le GIT"
+					
+	
+
+
+
+
+
+
+Réponse 5: La nature du blocage peut être multiple. Ici un blocage complet.
+           Un monitoring aura déjà du être mis en place. Des indicateurs et leurs paramétres associés seraient ainsi visibles. 
+
+           Actions possibles : 
+	   Une relecture du script yml doit être effectuer. Des spécifications peuvent en être l'origine.
+	   L'accès géographique peut être aussi une source de blocage: Penser à étendre l'implantation géographique.
+
+           si : l'application fonctionnait auparavant:
+                une audit interne avec la société et ses techniciens devrait aiguiller et préciser la source du blocage.
+	   si : il ya blocage de ou des formulaires:
+	        Diagnostiquer les interfaces du client est aussi à faire. 
+                Les requêtes et les informations ou commandes (C.R.U.D) peuvent être toutes ou partiellment bloqués.
+
+           Cela donnera des indices des points de faiblesse du code,  des routes, des adresses, des ports utilisés.
+	   Les mises à jours logicielles et de déploiement peuvent être la source du blocage ou de la régression fonctionnelle. 
+	   L'évaluation faite ci-dessus peut être répliquer à son tour pour le déploiement.
+
+           Préconisation : Monitoring & suivi des actions réponses serveurs vs formulaires / fréquences et type des requêtes / temps et intensité d'usage etc  
+
+	   Les indications de réponse à la question N°3 sont aussi autant d'indicateurs de source des erreurs.
+	   Faire appel au log est déjà un réflexe à prendre dès le départ.
+
+
+
+Réponse 6: Le propre du DevOPs c'est d'automatiser les taches, optimiser la dépense et virtualiser les données.
+	   les choix en Clouds sont multiples : AWS / Azure / AliExpress / Google.
+           Plus précisément il faut faire le relais et la sauvegarde des données. 
+
+           L'équipe réseau de l'entreprise peut rester maître des données et mettre via un double firewall (espace tampon sécurisé):
+           Protéger ses données et via l'espace virtualisé de façade générer un lien vers une BDD externe consultable via leur portail.
+           Cette BDD peut alimenter par une voie non accessible par le premier portail, mais par le second réseau.
+
+
+
+
+Réponse 7: Cette réponse demande de l'expérience. 
+	   Cependant au début du projet il y a des choix faits de technologies.
+           Il y a une démarche d'optimisation à la fois les langages/type de BDD/pour le plus de souplesse évolutive.
+
+           Solution: Une régression non pas du code mais vers une version antérieure peut fonctionner temporairement.
+		     De plus si le temps imparti est suffisant, très conjoncturel donc, des logiciels ou des BDD équivalents peuvent être rechercher pour effectuer une migration.
+		     Cependant si la suite logicielle est indispensable un programme intermédiaire peut être générer pour patcher temporairement l'ancienne technologie.
+		     Autre solution, l'évolution d'un programme déjà existant plus ancien ou une version communicant avec un langage plus adapté peut faire office de relais.
+	             Dernier point le plus simple est de contacter l'éditeur du logiciel pour en connaître les particularités et leurs préconisations si alternative il y a. 
+
+
+
+
+Réponse 8: L virtualisation par le cloud permet via la scalisation. L'on peut d'augmenter les capacités soit de stockage soit de traitement.
+	   S'il y a trop grande sollicitation de connexion puis de traitement cela sature le réseau et plante le traitement.
+	   
+Solutions : 1 / via kubernettes et ses nodes l'on adapte la demande de capacité au besoin cela de manière variable car le coût 
+                le sera tout autant elle sera verticale et horizontale.
+	    2 / Si il y a un déficit continu, c'est struturel. 
+                Il faut revoir le script de départ et des paramêtres des besoins initiaux.
+
+
+
+Réponse 9: 
+

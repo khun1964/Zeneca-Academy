@@ -1,0 +1,84 @@
+Fichier docker-compose :
+
+prometheus:
+  image: prom/prometheus:latest
+  container_name: 'prometheus'
+  volumes:
+   - ./prometheus/config.yml:/etc/prometheus/config.yml
+  command:
+   - "--config.file=/etc/prometheus/config.yml"
+  ports:
+   - '9090:9090'
+
+
+
+Fichier de configuration de Prometheus (config.yml) :
+
+global:
+  scrape_interval: '5s'
+  evaluation_interval: '5s'
+  scrape_configs:
+   - job_name: 'Prometheus'
+    static_configs:
+     - targets: ['adresse_ip:9090']
+   - job_name: 'NodeExporter'
+    static_configs:
+     - targets: ['adresse_ip:9100']
+   - job_name: 'Grafana'
+    static_configs:
+     - targets: ['adresse_ip:3000']
+   - job_name: 'NginxExporter'
+    static_configs:
+     - targets: ['adresse_ip:9113']
+
+
+
+#docker_compose.yml
+version: "3.3"
+services:
+  storagenode:
+image: storjlabs/storagenode:latest
+volumes:
+  - type: bind
+source: "/home/juerg/.local/share/storj/identity/storagenode"
+target: /app/identity
+  - type: bind
+source: "/DriveShare/StorjNode"
+target: /app/config
+ports:
+  - 28967:28967
+  - 14002:14002
+deploy:
+  restart_policy:
+  condition: unless-stopped
+environment:
+  - WALLET=0xxxxxxxxxxxxxxxxxxxxxxx
+  - EMAIL=my-email@here.ch
+  - ADDRESS=my-address:28967
+  - STORAGE=3200GB
+watchtower:
+  image: storjlabs/watchtower
+  restart: always
+  container_name: watchtower
+  command: --interval 21600 --cleanup true --stop-timeout 300s --cleanup
+  volumes:
+    - /var/run/docker.sock:/var/run/docker.sock
+  storj-exporter:
+  image: anclrii/storj-exporter:latest
+  restart: unless-stopped
+  container_name: storj-exporter
+  links: 
+    - storagenode
+  ports:
+    - 9651:9651
+storj-prometheus:
+  image: prom/prometheus
+  restart: unless-stopped
+  container_name: storj-prometheus
+  links:
+    - storj-exporter
+  ports:
+   - 9090:9090
+  volumes:
+    - /srv/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
+    - storj-prometheus:/prometheus

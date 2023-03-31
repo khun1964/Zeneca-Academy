@@ -1,0 +1,11 @@
+docker-compose :
+
+* service:
+  
+    -Nginx
+
+    -Prom
+
+    -Node-exporter
+
+    -Nginx-exporter

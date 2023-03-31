@@ -1,0 +1,56 @@
+---------------------------------------------------------------------
+ commandes git: 1 et 2: config de l'outil
+---------------------------------------------------------------------
+1 git config --global user.name "monacodev"
+  git config --global user.email nassim.chabane@gmail.com
+-------------------------------------------------------
+2 git config --global color.diff auto
+  git config --global color.status auto
+  git config --global color.branch auto
+  git config --global core.editor notepad++
+  git config --global merge.tool vimdiff
+--------------------------------------------------------
+
+  git init # première chose à faire
+ 
+  git add <file> pour ajouter un fichier
+
+  git status voir les fichiers ajouté dans la stag
+--------------------------------------------------------
+
+ git log # pour voir les fichiers à commiter 
+
+ git branch  <nom branche> # créer une branche
+
+ git -b develop ou git branche develope
+
+ git checkout <nom branche> pour se mettre sur la bonne branche pour ensuite 
+
+pouvoir commiter sur la bonne branche
+
+ git checkout pour switcher entre les branches 
+ 
+ git branch            # voir les branches
+
+ git commit -m "chore: commentaire"
+
+ git commit -am "chore: commentaire" /* fusionne le add et le commit en une seule task
+
+quand on commit on commite sur la branche develop et jamais sur la main 
+c'est la branche de production 
+----------------------------------------------------------------------------
+ git push on le fait sur le develop 
+
+et ensuite on merge une fois sur le master
+
+ git checkout master
+
+ git merge develop
+
+-----------------------------------------------------------
+ git remote add origin https://github.com/monacodev/Deno.git 
+ git push -u origin master
+
+
+
+

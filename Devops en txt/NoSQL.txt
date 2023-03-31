@@ -1,0 +1,230 @@
+02-03-2022 Killian // Cours de NoSQL.
+
+Algébre relationnel a donné les bdd relationnelle : table avec des listes puis association de table ayant des liens via des jointures.
+
+
+liste des BDD SQL: MySQL / Maria / Oracle / DB2(ibm). Plus elle sont grosses plus la lecture est longue lors des requêtes.
+
+Après SQL il y a eu NéoSQL avec PostgreSQL avant le NoSQL.
+
+NoSQL : Cassandra / Mongo / Neo4j / redis / Elasticsearch / Bigtable(google) / HBase(Facebook) etc.
+
+Le fait de connaître une BDD de ce type ne vous permets pas de maîtriser toutes les autres.
+
+pour les Devops Redis est la bdd de référence.
+
+
+NoSQL(BigData = système s'adaptant au volume des donnèes / l'on parlera de scalabilité).
+
+L'extension de la capacité s'appuie sur la scalabilité horizontale ( groupe de ressources : cluster de machines),
+mais aussi par l'association virtuelle comme le Clouds le permet.
+
+Le but est aussi d'être résilient (se remettre d'un choc et de continuer),
+cela ne veut pas dire résistance ( capacité de supporter et de resister au choc).
+
+
+Clouds : mot marketing 
+
+
+Historique: 
+
+1 / Data Center  avec des seveurs dédiés 
+          classique IBM / Location an 
+               +
+2 / services d'entretiens intégrés 
+  contrat supplémentaire / Location an  
+               + 
+3 / extension de puissance adaptable / cela donnera un serveur virtuel
+         contrat adapté.
+               +
+4/  Location mois
+
+le cloud sera l'ensemble de tout ces services payer selon le besoin qui évolue dans le temps. Autoadaptable donc.
+On paye au service. Pas de service pas de coût. pour Netflix paiement à l'heure.
+Netflix analyse les nombres de connexions, leurs durées et sur quelles programmes suivies selon la période de la journée et selon les programmes suivis.
+
+
+triangle de cap 
+
+disponibilité / aviability: A
+
+cohérence des données : C
+
+tolérance / persistence : partition & sauvegarde : P
+
+voir schémas dessinés.
+
+Le web service est un API : ce que font toute les pages web avec des formulaires et les requêtes POST GET etc.
+Le SOA donnera du SOAP (une version de SOA) qui lui même donnera naissance à une évolution les micro-services.
+
+
+Les familles de NoSQL
+
+Usage avec REDIS 
+key Value (KV): une clef donne une valeur / comme Redis. Deux méthodes GET <key> // SET <key> <Value>
+
+
+
+BDD orientée document : MongoDB conçoit des collections et stocke sous forme de Json.
+Pour les requêtes ont utilise non pas du SQL mais un langage formel apparenté au Json.
+
+Orienté Graph avec Neo4j : des noeuds et des arcs.Neo4j index les relations.
+Ce qui intéresse ce n'est pas les données mais les relations entre elles. 
+un logiciel est un graphe
+
+orienté colonne : cassandra est un entrepôt  / Elasticsearch est un moteur de recherche.
+Il y a recherche de la valeur dans la colonne puis renvoi la ligne.
+le tout est sous forme Json ainsi que les requêtes.
+cassandra a peu d'indexation.il index les colonnes via les nodes. valable que pour une masse de nodes.
+
+
+Différence entre la base de données et le moteur de recherche
+Laisser un commentaire	/ Computer Networks, Difference Between / Par Acervo Lima
+
+1. Base de données :
+comme son nom l’indique, la base de données est simplement un moyen de suivre et d’organiser et est donc considérée comme une partie importante de la gestion d’une entreprise.
+Il permet de simplifier les requests complexes et d’inclure des informations en vrac de manière organisée, ce qui permet à l’utilisateur d’explorer et de localiser plus facilement les informations pertinentes.
+
+2. Moteur de recherche :
+comme son nom l’indique, le moteur de recherche est simplement un moyen qui permet aux utilisateurs de rechercher des informations sur le Web. 
+Et est donc considéré comme utile pour trouver des informations produites par des gouvernements, des organisations, des individus et des groupes. 
+Il élimine simplement le besoin de rechercher des informations manuellement et en effectuant des recherches à grande vitesse.
+
+Différence entre la base de données et le moteur de recherche :
+ 
+	
+
+Moteur de recherche  											                        Base de données
+
+Il fait référence à la structure des données qui comprend la collecte systématique de données.   	                        Il fait référence à un logiciel qui permet aux utilisateurs de rechercher sur Internet du contenu dans sa base de données.  
+Il est utilisé pour stocker et prendre en charge des données ou des informations.   	                                        Il est utilisé pour permettre aux utilisateurs de localiser des données ou des informations dans des bases de données.  
+Il aide les utilisateurs à créer, récupérer, trier et modifier des données selon leurs besoins.   	                        Il aide les utilisateurs en mettant des pages Web qu’il pense que l’utilisateur veut et est très utile pour trouver des informations sur n’importe quoi rapidement et facilement.  
+Il peut stocker et récupérer une grande quantité de données structurées.   	                                                Il peut rechercher du texte non structuré.  
+Il recherche des informations dans une collection organisée.  	                                                                Il est utile pour trouver des informations sur les groupes et les organisations.  
+Il est conçu en partie back-end.   	                                                                                        Il est conçu en front-end pour rechercher des données dans la base de données.  
+
+
+L’information est bien organisée et plus fiable dans les bases de données.   	                                                L’information n’est pas organisée et n’est pas stable car les emplacements et le contenu changent continuellement.  
+
+Ce n’est pas gratuit et il faut payer un certain montant pour utiliser les bases de données.    	                        Il est libre d’utiliser le moteur de recherche par toute personne ayant accès à un ordinateur. 
+													                        Les entreprises utilisent des systèmes de bases de données car ils communiquent des informations relatives aux transactions de vente, 
+													                        aux stocks de produits, au profil des clients et aux activités de marketing.   	
+
+Les entreprises utilisent des moteurs de recherche à des fins publicitaires, 
+pour collecter des informations et des données, se tenir au courant des actualités et suivre la concurrence.                    Son objectif principal est de fournir un moyen de stocker et de récupérer des informations de base de données de manière pratique et efficace.   	
+
+Son objectif principal est de fournir un ensemble pertinent de résultats de recherche de haute qualité 		                Il maintient l’intégrité des données, améliore la sécurité des données, la sauvegarde et la récupération,
+														                la cohérence des données, réduit la redondance des données, améliore l’accès aux données pour les utilisateurs grâce à l’utilisation de langages hôte et de requête, etc.   	
+Les moteurs de recherche sont faciles et rapides à mettre en œuvre, contribuent à accroître la notoriété de la marque, 
+attirent l’audience au bon moment, organisent Internet et les sites Web individuels, etc.                                       index : c'est qui répondent le plus rapidement possible aux besoins du client.
+
+
+																Il maintient l’intégrité des données, améliore la sécurité des données, la sauvegarde et la récupération, 
+																la cohérence des données, réduit la redondance des données, améliore l’accès aux données pour les utilisateurs grâce à l’utilisation de langages hôte et de requête, etc.   	
+
+Les moteurs de recherche sont faciles et rapides à mettre en œuvre, 
+contribuent à accroître la notoriété de la marque, attirent l’audience au bon moment, 
+organisent Internet et les sites Web individuels, etc.  
+																
+
+Installer redis
+
+nouveau dossier
+puis docker-compose.yml 
+
+dans le fichier créer:
+
+version: "3.7"
+
+services:
+ redis:
+    image: redis
+    ports:
+    - 6379:6379
+
+puis dans le terminale
+
+docker-compose up -d  (lance le docker)
+
+Si cela bloque taper ctrl c
+
+
+Installer Mongodb
+
+nouveau dossier
+puis docker-compose.yml 
+
+dans le fichier créer:  
+
+version: '3.7'
+
+services:
+  mongo:
+    image: mongo
+    ports:
+     - 27017:27017
+  mongo-ui:
+    image: mongo-express
+    ports:
+    - 8081:8081                             ports: alternatives 8085 par exemple mais ne pas toucher le second
+    depends_on:		                    - 8085:8081  alternative toujours le premier 
+    - mongo
+			                    puis down le docker et relancer avec docker-compose up -d
+   
+Pour lancer le docker-compose up -d --build (créer l'image)
+il faut créer le chemin  :
+
+ ici un autre dossier
+
+cd .\docker-elk\
+
+puis 
+
+docker-compose up -d --build
+
+Vérifier avec l'interface graphique  Docker
+
+après pour l'ouvrir après l'avoir fermé.
+
+puis dans le terminale pour démarrer le docker :
+
+Important toujours lancer la commande dans le fichier ici : cd .\docker-elk\
+
+Puis 
+
+docker-compose up -d
+
+Si cela bloque taper ctrl c 
+   
+pip install pymongo 
+
+lancer le naviguateur localhost deux fois :
+
+localhost:9200       puis localhost:9200/_cat/indices
+localhost:5601       puis root:elastic et pwd :changeme
+
+
+
+
+Créer un venv :
+
+python -m venv .venv
+
+. .venv\scripts\Activate.ps1
+
+
+
+test : 
+python -m pip freeze
+python -m pip install pymongo
+
+Si problème avec pip il faut passer par python : python -m pip #
+
+
+Quitter un venv : deactivate
+
+
+
+auparavant on crée la BDD puis le backend en SQL. La BDD structure le projet et stucture le backend et donc le code.
+
+puis avec mongo en NoSQL, c'est l'inverse. Car le code contient le besoin et la bdd sert de réservoir 

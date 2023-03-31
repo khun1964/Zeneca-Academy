@@ -1,0 +1,97 @@
+GitHub Zeneca Academy
+
+url: https://github.com/khun1964/Zeneca-Academy
+
+Référence à :  Docker / kubernette / Jira / Postman / Ansible  / Maven / Git
+
+
+Réponse 4:  Préambule : Il sera nécessaire d'abord de bien vérifier le fichier pom.xml ( POM = Project Object Model).
+         		
+			Rappel :  Comme pour les fichiers YMl il faut détailler le projet: 
+				  son nom, sa version java,
+                        sa configuration et l'ensemble des dépendances qui sont sous un format ressemblant à HTMl; ici XML.
+
+	                site de référence: http://objis.com/auto-formation-maven-pratique/
+
+					   https://indico.mathrice.fr/event/123/sessions/59/attachments/141/175/ansible-presentation-et-tp.pdf
+
+
+
+	                Je résume :   project			La balise racine du fichier pom.xml, elle contient des paramètres pour valider le contenu XML
+			              modelVersion	 	La version du POM (Project Object Model)
+			              groupId			L'identifiant de la personne, équipe, ou entreprise qui développe le projet.
+			              artifactId 		Identifiant du projet (c'est aussi nom du projet au niveau du dossier racine).
+			              version			La version du projet.
+			              packaging 		Représente le format de sortie (généralement : « jar »)
+			              name                	Nom du projet
+			              url			Site web du projet
+			              description		description du projet
+			              dependencies		contient toutes les dépendances (les jar) utilisées dans le projet.
+	
+
+			
+			 configuration basique:
+
+	                              database:			la BDD est en local
+		                         host: localhost
+		                         port: 8080
+		                         name: database_test
+		                         user: user_name
+	   	                         password: my_password
+
+	                              logging:
+		                         level:debug
+		                         file: app.log
+
+	                              dependencies:
+		                         - flask ( il faudra adapter le lien de connexion qui est habituellement en python).
+							
+	   
+      	    Puis l'on va automatiser via le fichier YAMl/YML:  * Astuce intégrer dans un fichier principal le lien vers d'autres fichiers YAML.
+									include:
+									   - main.yaml
+
+								 On peut utiliser Ansible pour compiler les fichiers YML en un seul.
+
+	    Pour ma part n'étant pas expert je vais l'écrire d'un bloc en 4 étapes : build / test / deploy_dev / deploy_prod
+
+		Website: https://cloud.google.com/appengine/docs/flexible/java/configuring-your-app-with-app-yaml?hl=fr
+	   
+		
+
+		runtime: java20   -- version Java utilisée
+
+		instance_class:         "il ya une série de code donnant le nombre de CPU et de mémoire donc variable"		
+
+		image: docker      " il a été générer auparavant
+
+	        services:
+		 - docker:dind   (commande pour obtenir interne au conteneur) 
+
+		variables:
+		  DOCKER_DRIVER: overlay	 "c'est une commande permettant de créer des couches spécifiques dans le conteneur"
+
+		before_script:			"commandes préliminaires pour pouvoir accéder aux donnéees"
+                  - docker info
+		  - docker_login
+
+		build:				" c'est une étape nécessaire avant le deploy "
+		  stage: build		" action attendue"
+		  script:
+		    - mvn clean package     " commande en powershell ou CMD" pour appeller le package"
+                    - docker build	
+
+		deploy:			"déploiement"
+		  stage: deploy
+                  script:
+		    - ansible-playbook   "cette commande fait appel au logiciel d'automatisation des taches"
+					 "playbook est une commande qui contient une liste des taches à effectuer" 
+
+		  environnement:
+                    name: prod
+                    url: "adresse http ou https du fichuier à récupérer; ici un dépôt GIT"
+                  when: manual  "cette page n'est pas automatiser; il faut la déclencher"
+                  only:
+	            -master " branche master dans le GIT"
+					
+	

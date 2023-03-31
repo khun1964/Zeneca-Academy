@@ -1,0 +1,239 @@
+Element à connaître :
+
+
+0   passer de powershell à bash dans le terminal : taper bash
+
+
+1   Lancer WSl2 / linux pour window : wsl -d docker-desktop 
+    s'il n'est pas installé et sauvegarder faire : sudo apt install wsl      
+
+
+2   Démarrage : docker run -d -p 80:80 docker/getting-started
+
+Vous remarquerez que quelques indicateurs sont utilisés.
+
+ Voici quelques informations supplémentaires :
+
+    -d -exécuter le conteneur en mode détaché (en arrière-plan)
+    -p 80:80 -mapper le port 80 de l’ordinateur hôte au port 80 dans le conteneur
+    docker/getting-started -l’image à utiliser
+
+ Conseil
+
+Vous pouvez combiner des indicateurs à un seul caractère pour raccourcir la commande complète.
+ Par exemple, la commande ci-dessus peut être écrite comme suit : cli
+
+docker run -dp 80:80 docker/getting-started
+
+
+
+
+3   création d'un conteneur docker.
+    
+    docker-machine create
+
+
+
+4    création d'un gitlab/gitlab-runner
+
+     website : https://hub.docker.com/r/gitlab/gitlab-runner
+
+            docker pull gitlab/gitlab-runner
+
+
+
+5    Enregistrement du gitlab-runner:
+
+     docker run --rm -it -v $(pwd)/config:/etc/gitlab-runner gitlab/gitlab-runner register
+
+
+
+6    installation du gitlab-runner:
+
+     docker-compose pull  // ici on pousse une image à éviter
+
+
+
+
+7 --- Avant tout Créer tout  un environnement virtuel.
+
+       python -m venv .
+ 
+
+
+8 ----Passer au dossier maitre qui posséde le docker
+
+      .\Scripts\Activate.ps1
+
+
+
+8 ---Installer Flask qui est requis via le fichier requirements.txt
+
+     pip install flask  // pip freeze -- à vérifier
+
+
+
+9 /// Puis Créer un fichier app.py avec cet exemple.
+
+
+       A minimal Flask application looks something like this:
+
+
+      from flask import Flask
+
+      app = Flask(__name__)
+
+      @app.route("/")
+      def hello_world():
+       return "<p>Hello, World!</p>"    
+
+      # lancement de l'application
+
+      if __name__ == '__main__':
+         app.run()
+ 
+
+
+
+10 /// Créer un docker-compose.yml
+
+       version: '3' // version d'écriture yml
+
+
+       services:
+        app:
+          build: .
+          ports:
+           - 8080:5000
+   
+
+ 
+
+11 /// Créer un Dockerfile :
+
+       FROM python
+
+
+       WORKDIR /app
+       COPY . .
+       RUN pip install -r requirements.txt
+       EXPOSE 5000
+
+
+       CMD [ "flask", "run", "--host=0.0.0.0" ]
+
+
+
+
+12 ___ passer à un des dossiers ici .API
+
+	cd .\.api\
+
+	Puis commande : ls
+
+
+
+
+
+13 ___ lancer docker avec :
+
+       docker compose up
+
+
+
+
+
+
+
+
+
+
+TP pratique du 16 02 2022
+
+0 - sudo apt install wsl ( environnement virtuel linux).
+
+
+1 - git remote add origin https://gitlab.com/Mabuse/flask-demo.git
+
+
+1 - docker rm -f $(docker ps -q) / nettoyer si nécessaire les anciens docker et extensions.
+
+
+2 - créer un gichier gitlab dans le projet avec le fichier : docker-compose.yml
+
+
+3 - cd gitlab puis docker-compose up
+
+
+4 - test local host avec : http://localhost:9000
+
+
+5 - test gitlab avec : http://gitlab:9000
+
+
+6 - docker pull gitlab/gitlab-runner
+
+
+7 - docker exec -it runner1 gitlab-runner register
+  - adresse http dans le projet / setting / ci-cd / runner / d'abord http puis token.
+    Après docker  puis python.
+
+
+8 - docker exec -it runner2 gitlab-runner register : identique
+
+
+9 - gitlab enregistrer les variables.
+
+
+10 - gitlab : traiter ses variables après s'être connecté : voir traitement identique sonarQube.
+
+     SONAR_URL = http://sonar:900
+     SONAR_Token = 06244fe646771406519289ae5417b7e7348156de
+
+      flask.demo: 06244fe646771406519289ae5417b7e7348156de
+
+wsudo apt install wsl
+11 - puis git init ( voir sur la page gitlab).
+
+
+12 - git remote add origin http://localhost:9000/rootroot/flask-demo.git
+
+
+13 - git add .
+
+
+14 - git commit
+
+
+
+SONAR-QUBE : sonar-scanner.bat -D"sonar.projectKey=root" -D"sonar.sources=." -D"sonar.host.url=http://localhost:7000" -D"sonar.login=06244fe646771406519289ae5417b7e7348156de"
+
+
+
+15 - Add Variable dans le gitlab / ci-cd / setting / CI - CD : Add variable 
+
+	* Environnement de publication
+  
+```sh  
+CI_REGISTRY_USER=username_dockerhub   // CI_REGISTRY_USER  puis mmzshello1964
+CI_REGISTRY_PASSWORD=********         //   CI_REGISTRY_PASSWORD  puis root
+CI_REGISTRY=docker.io                 //  CI_REGISTRY=docker.io puis  root
+CI_REGISTRY_IMAGE=index.docker.io/username_dockerhub/nom_projet    // CI_REGISTRY_IMAGE  puis root
+```
+
+
+16 déploiement :  git push -u origin --all
+
+
+
+TP 17 02 2022
+
+0 - sudo apt install wsl ( environnement virtuel linux).
+
+1 - docker rm -f $(docker ps -q) / nettoyer si nécessaire les anciens docker et extensions.
+
+
+2 - création d'un docker gitlab :  docker pull gitlab/gitlab-ee
+
+3 - gitlab-ci-yaml
+     
